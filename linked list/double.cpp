@@ -27,8 +27,28 @@ class dll
     void deletefirst();
     void deletelast();
     void deletenode(int);
-    node* search(int);
     void viewlist();
+    node* search(int data)
+    {
+        node *t;
+        t=start;
+        while(t!=NULL)
+        {
+            if(t->item==data)
+              break;
+              t=t->next;
+
+        }
+        if(t==NULL)
+        {
+            return NULL;
+        }
+        else
+        {
+            return t;
+        }
+    }
+    
   
 
 
@@ -75,6 +95,42 @@ void dll::insertatlast(int data)
     }
 }
 
+void dll::insertnodeafter(int elem , int data)
+{
+    node *elm=search(elem);
+    if(elm!=NULL)
+    {
+        node *n=new node;
+        n->item=data;
+        
+        n->next=elm->next;
+        elm->next=n;
+        n->prev=elm;
+
+        
+    }
+    else
+    {
+       cout<<"SEARCH FAIL";
+    }
+
+}
+void dll::deletefirst()
+{
+    node *t;
+    if(start==NULL)
+    {
+      cout<<"UNDERFLOW";
+    }
+    else
+    {
+    t=start;
+    start=t->next;
+    t->prev=NULL;
+    delete t;
+    }
+}
+
 void dll::viewlist()
 {
     node *t;
@@ -102,6 +158,9 @@ int main()
     l1.insertatfirst(2);
     l1.insertatfirst(3);
     l1.insertatlast(10);
+    l1.insertnodeafter(2,13);
+    l1.deletefirst();
+    
     l1.viewlist();    
 
     

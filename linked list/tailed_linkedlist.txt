@@ -1,0 +1,48 @@
+#include <iostream>
+
+using namespace std;
+
+
+class linked_list
+{
+
+ struct node
+{
+
+  int data;
+  node* next;
+};
+
+public:
+  node* head, *tail; 
+  int size = 0;
+
+
+  linked_list()
+  {
+    head = NULL;
+    tail = NULL;
+  }
+
+  void addLast(int n)
+  {
+    node *n1=new node;
+    n1->data=n;
+    n1->next=NULL;
+    
+    if(head==NULL)
+    {
+      
+      head=n1;
+      tail=n1;
+
+    }
+    else
+    {
+      tail->next=n1;
+      tail=tail->next;
+    }
+
+    size++;
+
+  }
