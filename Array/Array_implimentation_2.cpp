@@ -95,9 +95,10 @@ int Array::search(int data)
     {
         if (a[i] == data)
             return i;
-        else
-            return -1;
+
+            
     }
+    return -1;
 }
 int Array::getdata(int index)
 {

@@ -17,8 +17,13 @@ public:
     int count();
     void show();
     void edit(int index, int data);
-    void Double();
+    
     ~Array();
+protected:
+void Double();
+void Half();
+
+
 };
 void Array::Double()
 {
